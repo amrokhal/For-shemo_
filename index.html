@@ -137,16 +137,39 @@ button:hover {
 }
 
 .message {
-  margin-top: 20px;
-  font-size: 1rem;
-  color: #f5d0fe;
+  margin-top: 22px;
+  font-size: 1.05rem;
+  color: white;
   opacity: 0;
   transition: 0.4s;
-  min-height: 28px;
+  min-height: 60px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transform: scale(0.8);
+  box-shadow: 0 0 18px rgba(255,255,255,0.1);
 }
 
 .show {
   opacity: 1;
+  transform: scale(1);
+  animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .heart {
@@ -160,6 +183,21 @@ button:hover {
   0%,100% {
     transform: translateY(0);
   }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) rotate(360deg);
+  }
+}
   50% {
     transform: translateY(-6px);
   }
@@ -241,7 +279,7 @@ button:hover {
     اقري احسن ليك
   </div>  <div style="margin-bottom: 10px; color: #f3e8ff; font-size: 0.95rem;">اضغطي هنا لو ذاكرتي ✨</div><button onclick="studyDone()">ذاكرت الليلة؟</button>
 
-  <div class="message" id="message"></div>  <div class="heart">💜</div>
+  <div class="message" id="message"></div>  <div id="confetti"></div>  <div class="heart">💜</div>
 </div><script>
   const quotes = [
     'اقري احسن ليك',
@@ -269,12 +307,27 @@ button:hover {
 
   function studyDone() {
     const message = document.getElementById('message');
-    message.innerText = 'احلى وحدة ذاكرت الليلة 💜';
+    const confetti = document.getElementById('confetti');
+
+    message.innerText = '💜 احلى وحدة ذاكرت الليلة 💜';
     message.classList.add('show');
+
+    confetti.innerHTML = '';
+
+    for(let i = 0; i < 25; i++) {
+      const piece = document.createElement('span');
+      piece.innerText = ['✨','💜','⭐'][Math.floor(Math.random() * 3)];
+      piece.style.position = 'absolute';
+      piece.style.left = Math.random() * 100 + '%';
+      piece.style.top = '50%';
+      piece.style.fontSize = (Math.random() * 14 + 18) + 'px';
+      piece.style.animation = `fall ${Math.random() * 1 + 1.5}s ease forwards`;
+      confetti.appendChild(piece);
+    }
   }
 
-  const endDate = new Date();
-  endDate.setDate(endDate.getDate() + 23);
+  const targetDate = '2026-06-21T00:00:00';
+  const endDate = new Date(targetDate);
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -305,4 +358,4 @@ button:hover {
     starsContainer.appendChild(star);
   }
 </script></body>
-  </html>
+</html>
