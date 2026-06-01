@@ -1,361 +1,77 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Shaimaa</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }body {
-  font-family: 'Cairo', sans-serif;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #1d102b, #4b1f73, #7c3aed);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  position: relative;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اضغط هنا</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#111;
+    overflow:hidden;
+    font-family:sans-serif;
 }
 
-.stars {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
+button{
+    padding:20px 40px;
+    font-size:24px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
 }
 
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.7;
-  animation: twinkle 3s infinite ease-in-out;
+.emoji{
+    position:absolute;
+    font-size:80px;
+    animation: crazy 1s infinite linear;
 }
 
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-.container {
-  width: 90%;
-  max-width: 420px;
-  padding: 30px;
-  border-radius: 28px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.15);
-  text-align: center;
-  z-index: 1;
-  box-shadow: 0 0 30px rgba(0,0,0,0.3);
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.subtitle {
-  color: #e9d5ff;
-  margin-bottom: 30px;
-  font-size: 0.95rem;
-}
-
-.countdown-title {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-}
-
-.countdown {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-bottom: 30px;
-}
-
-.time-box {
-  background: rgba(255,255,255,0.12);
-  padding: 12px 5px;
-  border-radius: 16px;
-}
-
-.time-box span {
-  display: block;
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
-.time-box small {
-  color: #ddd;
-  font-size: 0.75rem;
-}
-
-.quote-box {
-  min-height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 18px;
-  margin-bottom: 25px;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  transition: 0.3s;
-}
-
-button {
-  border: none;
-  background: #c084fc;
-  color: white;
-  padding: 14px 22px;
-  border-radius: 18px;
-  font-size: 1rem;
-  font-family: inherit;
-  cursor: pointer;
-  transition: 0.25s;
-  width: 100%;
-  font-weight: bold;
-  box-shadow: 0 0 18px rgba(192,132,252,0.45);
-}
-
-button:hover {
-  transform: scale(1.03);
-  background: #d8b4fe;
-}
-
-.message {
-  margin-top: 22px;
-  font-size: 1.05rem;
-  color: white;
-  opacity: 0;
-  transition: 0.4s;
-  min-height: 60px;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  transform: scale(0.8);
-  box-shadow: 0 0 18px rgba(255,255,255,0.1);
-}
-
-.show {
-  opacity: 1;
-  transform: scale(1);
-  animation: pop 0.6s ease;
-}
-
-@keyframes pop {
-  0% {
-    transform: scale(0.6);
-  }
-  60% {
-    transform: scale(1.08);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.heart {
-  margin-top: 25px;
-  font-size: 1.4rem;
-  opacity: 0.8;
-  animation: float 2.5s infinite ease-in-out;
-}
-
-@keyframes float {
-  0%,100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-@keyframes fall {
-  0% {
-    opacity: 1;
-    transform: translateY(0) rotate(0deg);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-120px) rotate(360deg);
-  }
-}
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-@media(max-width: 480px){
-  body {
-    padding: 12px;
-    overflow-x: hidden;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 100%;
-    padding: 22px 16px;
-    border-radius: 24px;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  .subtitle {
-    font-size: 0.88rem;
-  }
-
-  .countdown {
-    gap: 8px;
-  }
-
-  .time-box {
-    padding: 10px 4px;
-  }
-
-  .time-box span {
-    font-size: 1.1rem;
-  }
-
-  .quote-box {
-    font-size: 0.95rem;
-    min-height: 85px;
-    padding: 14px;
-  }
-
-  button {
-    font-size: 0.95rem;
-    padding: 13px 18px;
-  }
-
-  .message {
-    font-size: 0.92rem;
-  }
-}
-
-  </style>
-</head>
-<body><div class="stars"></div><div class="container">
-  <h1>شيماء 💜</h1>
-  <div class="subtitle">كلها أيام وتعدي</div>  <div class="countdown-title">تبقى 23 يوم</div>  <div class="countdown">
-    <div class="time-box">
-      <span id="days">23</span>
-      <small>يوم</small>
-    </div><div class="time-box">
-  <span id="hours">00</span>
-  <small>ساعة</small>
-</div>
-
-<div class="time-box">
-  <span id="minutes">00</span>
-  <small>دقيقة</small>
-</div>
-
-<div class="time-box">
-  <span id="seconds">00</span>
-  <small>ثانية</small>
-</div>
-
-  </div>  <div class="quote-box" id="quote">
-    اقري احسن ليك
-  </div>  <div style="margin-bottom: 10px; color: #f3e8ff; font-size: 0.95rem;">اضغطي هنا لو ذاكرتي ✨</div><button onclick="studyDone()">ذاكرت الليلة؟</button>
-
-  <div class="message" id="message"></div>  <div id="confetti"></div>  <div class="heart">💜</div>
-</div><script>
-  const quotes = [
-    'اقري احسن ليك',
-    'كلها ايام وتعدي',
-    'خلي الكسل 😠',
-    'ما تشيلي هم انتي اشطر وحدة',
-    'حتى الصفحة الواحدة بتفرق',
-    'ركزي الليلة وارتاحي بعدين',
-    'المستقبل محتاج شيماء القوية'
-  ];
-
-  let quoteIndex = 0;
-  const quoteElement = document.getElementById('quote');
-
-  setInterval(() => {
-    quoteIndex = (quoteIndex + 1) % quotes.length;
-    quoteElement.style.opacity = 0;
-
-    setTimeout(() => {
-      quoteElement.innerText = quotes[quoteIndex];
-      quoteElement.style.opacity = 1;
-    }, 250);
-
-  }, 4000);
-
-  function studyDone() {
-    const message = document.getElementById('message');
-    const confetti = document.getElementById('confetti');
-
-    message.innerText = '💜 احلى وحدة ذاكرت الليلة 💜';
-    message.classList.add('show');
-
-    confetti.innerHTML = '';
-
-    for(let i = 0; i < 25; i++) {
-      const piece = document.createElement('span');
-      piece.innerText = ['✨','💜','⭐'][Math.floor(Math.random() * 3)];
-      piece.style.position = 'absolute';
-      piece.style.left = Math.random() * 100 + '%';
-      piece.style.top = '50%';
-      piece.style.fontSize = (Math.random() * 14 + 18) + 'px';
-      piece.style.animation = `fall ${Math.random() * 1 + 1.5}s ease forwards`;
-      confetti.appendChild(piece);
+@keyframes crazy{
+    0%{
+        transform:translate(0,0) rotate(0deg);
     }
-  }
+    25%{
+        transform:translate(200px,-100px) rotate(90deg);
+    }
+    50%{
+        transform:translate(-200px,100px) rotate(180deg);
+    }
+    75%{
+        transform:translate(150px,150px) rotate(270deg);
+    }
+    100%{
+        transform:translate(0,0) rotate(360deg);
+    }
+}
+</style>
+</head>
 
-  const targetDate = '2026-06-21T00:00:00';
-  const endDate = new Date(targetDate);
+<body>
 
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = endDate - now;
+<button id="btn">اضغط هنا</button>
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+<script>
+document.getElementById("btn").onclick = function(){
 
-    document.getElementById('days').innerText = days;
-    document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-    document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-  }
+    this.remove();
 
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
+    const emoji = document.createElement("div");
+    emoji.className = "emoji";
+    emoji.innerText = "🤪";
 
-  const starsContainer = document.querySelector('.stars');
+    document.body.appendChild(emoji);
 
-  for(let i = 0; i < 80; i++) {
-    const star = document.createElement('div');
-    star.classList.add('star');
-    star.style.top = Math.random() * 100 + '%';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-    starsContainer.appendChild(star);
-  }
-</script></body>
+    setInterval(() => {
+        emoji.style.left = Math.random() * window.innerWidth + "px";
+        emoji.style.top = Math.random() * window.innerHeight + "px";
+    }, 100);
+};
+</script>
+
+</body>
 </html>
